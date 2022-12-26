@@ -43,13 +43,19 @@ function onCountryMarkup(country) {
   return country
     .map(
       ({ name, capital, population, flags, languages }) =>
-        `<div class = "country-item"><img src="${flags.svg}" alt="${
+        `<div class = "country-item" style="
+        display: flex;
+        align-items: center;
+        gap: 15px;"><img src="${flags.svg}" alt="${
           name.official
         }" width='64' height = '40'>
         <h1 class="country-text">${name.official}</h1></div>
-        <p class="country-text-info">Capital: ${capital}</p>
-        <p class="country-text-info">Population: ${population}</p>
-        <p class="country-text-info">Languages: ${Object.values(languages)} </p>
+        <p class="country-text-info"><span style="
+        font-weight: 700;">Capital: </span>${capital}</p>
+        <p class="country-text-info"><span style="
+        font-weight: 700;">Population: </span>${population}</p>
+        <p class="country-text-info"><span style="
+        font-weight: 700;">Languages: </span>${Object.values(languages)} </p>
         `
     )
     .join();
@@ -59,8 +65,14 @@ function onCountiesListMarkup(countries) {
   return countries
     .map(
       ({ name, flags }) =>
-        `<li class="country-item"><img src="${flags.svg}" alt="${name.official}" width='32' height = '20'>
-        <p class="country-text">${name.official}</p></li>`
+        `<li class="country-item" style="
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        list-style: none;
+        margin-left: -40px"><img src="${flags.svg}" alt="${name.official}" width='32'>
+        <p class="country-text" style="
+        margin: 5px 0 5px 0;">${name.official}</p></li>`
     )
     .join('');
 }

@@ -58,7 +58,7 @@ function onCountryMarkup(country) {
         font-weight: 700;">Languages: </span>${Object.values(languages)} </p>
         `
     )
-    .join();
+    .join('');
 }
 
 function onCountiesListMarkup(countries) {
